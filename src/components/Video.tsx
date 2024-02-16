@@ -1,9 +1,7 @@
 import ReactPlayer from "react-player";
 import { useAppSelector } from "../store";
 
-interface VideoProps {}
-
-export function Video(props: VideoProps) {
+export function Video() {
   const lesson = useAppSelector((state) => {
     const { currentModuleIndex, currentLessonIndex } = state.player;
 
