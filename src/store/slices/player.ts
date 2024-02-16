@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-const playerSlice = createSlice({
+export const playerSlice = createSlice({
   name: "player",
   initialState: {
     course: {
@@ -72,14 +72,13 @@ const playerSlice = createSlice({
 
       if (nextLesson) {
         state.currentLessonIndex = nextLessonIndex;
-      }
-
-      const nextModuleIndex = state.currentModuleIndex + 1;
-      const nextModule = state.course.modules[nextModuleIndex];
-
-      if (nextModule) {
-        state.currentModuleIndex = nextModuleIndex;
-        state.currentLessonIndex = 0;
+      } else {
+        const nextModuleIndex = state.currentModuleIndex + 1;
+        const nextModule = state.course.modules[nextModuleIndex];
+        if (nextModule) {
+          state.currentModuleIndex = nextModuleIndex;
+          state.currentLessonIndex = 0;
+        }
       }
     },
   },
