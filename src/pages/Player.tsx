@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { Header } from "../components/Header";
 import { Module } from "../components/Module";
 import { Video } from "../components/Video";
+import { useCurrentLesson } from "../hooks/use-current-lesson.hook";
 import { useAppSelector } from "../store";
-import { useCurrentLesson } from "../store/slices/player";
 
 export function PlayerPage() {
   const modules = useAppSelector((state) => {
